@@ -1,0 +1,106 @@
+
+thead {
+  background-color: lightblue;
+}
+
+label {
+  font-weight: 700;
+}
+
+#mainImg {
+  display: inline-block;
+  /* change the default display type to inline-block */
+  overflow: hidden;
+  transition-timing-function: linear;
+}
+
+img {
+  width: 95%;
+  height: 300px;
+  object-fit: cover;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+#footer {
+  background-image: linear-gradient(to bottom, grey, black);
+}
+
+
+
+#details {
+  background-color: rgb(234, 240, 244);
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 5px;
+ 
+}
+
+#image, #recentPhoto {
+  max-height: 265px;
+}
+
+#indexImage {
+  max-height: 200px;
+}
+
+#carouselImage {
+  height: 600px;
+}
+
+
+#logo {
+  max-height: 80px;
+  max-width: 80px;
+
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+#matchChipNull {
+  background-color: #f8f9fa; 
+  border-radius: 10px;
+
+}
+
+#matchChipTrue {
+  background-color: yellow; 
+  border-radius: 10px;
+
+}
+
+#regCard, #loginCard, #createForm {
+  background-color: #f8f9fa;
+}
+
+
+
+#navbarPad {
+  padding-bottom: 40px;
+
+}
+
+#navbarSupportedContent {
+  align-items: center;
+}
+
+.navbarHeader img {
+  max-height: 100%;
+    width: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+#aboutRow {
+  background-color: antiquewhite;
+  width: 100%;
+}
+
+label {
+  margin-left: 30px;
+}
