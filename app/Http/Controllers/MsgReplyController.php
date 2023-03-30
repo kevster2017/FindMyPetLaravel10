@@ -57,7 +57,6 @@ class MsgReplyController extends Controller
 
         ]);
 
-        //dd($request);
 
         // $pm->user_id = auth()->user()->id;
         $pm->FromUser_id = auth()->user()->id;
@@ -67,6 +66,8 @@ class MsgReplyController extends Controller
         $pm->ToUser_firstName = $request->input('ToUser_firstName');
         $pm->firstName = auth()->user()->firstName;
         $pm->message = $request->message;
+
+        //dd($pm);
 
 
         $pm->save();

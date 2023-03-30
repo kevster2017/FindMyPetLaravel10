@@ -104,3 +104,26 @@ a {
 label {
   margin-left: 30px;
 }
+
+#navImg {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+#showNav {
+  background-color: blue;
+}
+
+#navText {
+  color: white;
+}
+
+/* Messages */
+  
+#replyBody {
+  background-color: lightgreen;
+}
+
+#messageBody {
+  background-color: aliceblue;
+}
