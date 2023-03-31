@@ -8,6 +8,7 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Home</a></li>
+
       <li class="breadcrumb-item active" aria-current="page">Message Replies</li>
     </ol>
   </nav>
@@ -87,7 +88,7 @@
 
         <input type="hidden" name="firstName" id=" firstName " value="{{ Auth::user()->firstName }}" />
 
-        <input type="hidden" name="message_id" value="{{$message->id}}">
+        <input type="hidden" name="message_id" value="{{$message->message_id}}">
 
         <input type="hidden" name="ToUser_id" value="{{$message->ToUser_id}}">
 
