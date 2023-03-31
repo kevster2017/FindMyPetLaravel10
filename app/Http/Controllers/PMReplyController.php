@@ -81,15 +81,30 @@ class PMReplyController extends Controller
      */
     public function show($id)
     {
+
+        /*
         $id = auth()->user()->id;
-
-
 
         $messages = PMReply::orderBy('created_at', 'asc')
             ->where('ToUser_ID', $id)
             //->get();
             ->paginate(3);
         //dd($messages);
+        */
+
+        $message = PMReply::findOrFail($id);
+
+        dd($message);
+
+        $msgid = $message->private_message_id;
+
+        $messages = DB::table('private_messages')
+            ->join('pmreplys', 'private_messages.id', '=', 'pmreplys.private_message_id')
+            ->where('private_messages.id', $msgid)
+            ->select('pmreplys.*', 'private_messages.id as private_messages_id')
+            ->paginate(3);
+
+
 
         return view('PMReply.show', [
             'messages' => $messages,

@@ -26,12 +26,10 @@ class PrivateMessageController extends Controller
         if (auth()->check() && auth()->user()->is_admin == 1) {
             $arr['messages'] = PrivateMessage::orderBy('created_at', 'asc')->paginate(3);
             return view('privateMessage.index')->with($arr);
-           // dd($arr);
+            // dd($arr);
         } else {
             return abort(403);
         }
-
-        
     }
 
     /**
@@ -88,6 +86,7 @@ class PrivateMessageController extends Controller
     public function show($id)
     {
 
+        /*
       $id = auth()->user()->id;
       $missing = DB::table('missings')
       ->where('user_id', $id)
@@ -103,7 +102,19 @@ class PrivateMessageController extends Controller
             'missing' => $missing,
             
         ]);
-        
+
+        */
+
+        $messages = PrivateMessage::orderBy('id', 'DESC')
+            ->where('report_id', $id)
+            ->paginate(3);
+
+
+        return view('privateMessage.show', [
+            'messages' => $messages,
+
+
+        ]);
     }
 
     /**
