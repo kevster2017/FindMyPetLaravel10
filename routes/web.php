@@ -12,7 +12,7 @@ use App\Http\Controllers\PrivateMessageController;
 use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\PMReplyController;
 use App\Http\Controllers\MsgReplyController;
-
+use App\Http\Controllers\SocialShareController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,3 +79,5 @@ Route::get('/viewStatistics', [StatisticsController::class, 'stats']);
 Route::get('/Register', function () {
     return view('Register');
 });
+
+Route::get('social-share', [SocialShareController::class, 'index']);

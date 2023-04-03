@@ -210,6 +210,15 @@ class MissingController extends Controller
      */
     public function show($id)
     {
+
+        $shareButtons = \Share::page(
+            'https://www.findmypet.com',
+            'Help reunite this pet with its owner',
+        )
+            ->facebook()
+            ->whatsapp();
+
+
         $missing = Missing::findOrFail($id);
 
         $chip = $missing->chipNum;
@@ -221,6 +230,7 @@ class MissingController extends Controller
             ->get();
 
         return view('missing.show', [
+            'shareButtons' => $shareButtons,
             'missing' => $missing,
             'missings' => $missings,
 

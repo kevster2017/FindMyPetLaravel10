@@ -266,7 +266,12 @@
 
 
       </div>
+      <div class="social-btn-sp mt-5">
+        {!! Share::page(url('/missing/'. $missing->id))->facebook()->whatsapp() !!}
+      </div>
+
     </div>
+
   </div>
 
 </div>

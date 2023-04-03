@@ -48,7 +48,7 @@
                 </div>
                 <div class="col ms-3 pt-3">
                   <div class="card-body">
-                    <a href="{{ route('MsgReply.show', $message->id) }}">
+                    <a href="{{ route('MsgReply.show', $message->report_id) }}">
                       <h5 class="card-title ">{{ $message->firstName}}</h5>
                       <p class="card-text ">{{ $message->message }}</p>
                       <p class="card-text mb-3"><small class="text-muted">Message Received {{ $message->created_at->diffforhumans() }}</small>

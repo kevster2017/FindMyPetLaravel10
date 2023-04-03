@@ -137,7 +137,6 @@ class FoundController extends Controller
         ]);
 
 
-
         $imagePath = (request('img1')->store('images', 'public'));
         $imagePath2 = null;
         $imagePath3 = null;
@@ -213,6 +212,14 @@ class FoundController extends Controller
 
     public function show($id)
     {
+
+        $shareButtons = \Share::page(
+            'https://www.findmypet.com',
+            'Help reunite this pet with its owner',
+        )
+            ->facebook()
+            ->whatsapp();
+
         $found = Found::findOrFail($id);
 
         $chip = $found->chipNum;
@@ -225,6 +232,7 @@ class FoundController extends Controller
 
 
         return view('found.show', [
+            'shareButtons' => $shareButtons,
             'found' => $found,
             'founds' => $founds,
 

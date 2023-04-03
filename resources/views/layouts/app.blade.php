@@ -27,6 +27,24 @@
     <!-- Additional CSS Files -->
 
     <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        table #social-links {
+            display: inline-table;
+        }
+
+        table #social-links ul li {
+            display: inline;
+        }
+
+        table #social-links ul li a {
+            padding: 5px;
+            border: 1px solid #ccc;
+            margin: 1px;
+            font-size: 15px;
+            background: #e3e3ea;
+        }
+    </style>
 </head>
 
 

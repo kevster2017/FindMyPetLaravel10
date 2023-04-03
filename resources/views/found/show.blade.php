@@ -261,6 +261,10 @@
 
 
       </div>
+      <div class="social-btn-sp mt-5">
+        {!! Share::page(url('/found/'. $found->id))->facebook()->whatsapp() !!}
+      </div>
+
     </div>
   </div>
 

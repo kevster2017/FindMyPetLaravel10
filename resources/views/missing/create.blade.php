@@ -64,9 +64,9 @@
                     <div class="col">
                         <select class="form-select @error('petType') is-invalid @enderror" name="petType" aria-label="Default select example">
 
-                            <option selected="Dog">Dogs</option>
-                            <option value="Cat">Cats</option>
-                            <option value="Other">Other Pets</option>
+                            <option selected="Dog">Dog</option>
+                            <option value="Cat">Cat</option>
+                            <option value="Other">Other</option>
 
                         </select> @error('petType')
                         <span class="invalid-feedback" role="alert">
