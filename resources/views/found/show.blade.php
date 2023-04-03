@@ -7,6 +7,7 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Home</a></li>
+
       <li class="breadcrumb-item active" aria-current="page">Found {{ $found->petType}} Profile</li>
     </ol>
   </nav>
@@ -183,7 +184,6 @@
                 <h5 class="modal-title" id="exampleModalLongTitle"><strong>Send Private Message about {{ $found->petName }}</strong></h5>
 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <form style="width:90%;" action="{{ route('privateMessage.store') }}" enctype="multipart/form-data" method="post">

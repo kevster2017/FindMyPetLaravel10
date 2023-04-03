@@ -85,13 +85,13 @@ class MsgReplyController extends Controller
     public function show($id)
     {
 
-        /*
+
         $id = DB::table('messages')->get();
 
         $messages = MsgReply::orderBy('id', 'DESC')
             ->where('message_id', $id)
             ->paginate(3);
-*/
+        /*
         $message = MsgReply::findOrFail($id);
 
         $msgid = $message->message_id;
@@ -102,7 +102,7 @@ class MsgReplyController extends Controller
             ->select('msgreplys.*', 'messages.id as messages_id')
             ->paginate(3);
 
-
+*/
 
         return view('msgreply.show', [
             'messages' => $messages,

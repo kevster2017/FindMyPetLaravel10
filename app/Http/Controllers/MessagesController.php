@@ -26,8 +26,11 @@ class MessagesController extends Controller
     public function index()
     {
 
-        $arr['messages'] = Messages::orderBy('id', 'desc')->paginate(3);
-        return view('messages.index')->with($arr);
+        $messages = Messages::orderBy('id', 'desc')
+            ->where('user_id', auth()->user()->id)
+            ->paginate(3);
+
+        return view('messages.index', compact('messages'));
     }
 
     /**
@@ -86,9 +89,12 @@ class MessagesController extends Controller
      */
     public function show($id)
     {
+
         $messages = Messages::orderBy('id', 'DESC')
             ->where('report_id', $id)
             ->paginate(3);
+
+
 
 
         return view('messages.show', [

@@ -8,166 +8,111 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">My Messages</li>
+
+      <li class="breadcrumb-item active" aria-current="page">Message Replies</li>
     </ol>
   </nav>
 </div>
 
+
 <div class="container py-3">
-
-  <h1 class="text-center mb-5">My Messages</h1>
-
-  @if($messages->count() < 1) <h1 class="text-center">No Messages Received </h1>
-    @else
-    @foreach($messages as $message)
-
-    <div class="row">
-      <div class="col-sm-8 mx-auto">
-
-        <!-- List group-->
-        <ul class="list-group" id="indexCard">
-
-          <!-- list group item-->
-          <li class="list-group-item">
+  <!-- message navbar -->
+  <div class="container my-3" id="showNav">
+    <div class="row" id="navText">
+      <div class="col-sm-2">
+        <div class="my-3" id="navText">
+          <a href="javascript:history.back()" class="mt-3">
+            <<< Back to Index </a>
+        </div>
 
 
-            <div class="my-2" style="max-width: 540px;">
-              <div class="row g-0">
-                <div class="col">
+      </div>
+      <div class="col-sm-4">
+        <img src="Images/tiger.jpg " class="img-fluid" alt="... " id="navImg">
+      </div>
+      <div class="col-sm-6">
+        <h5 class="card-title my-3">From Name</h5>
+      </div>
 
-                  @if($message->user->image === NULL)
-
-                  <img src="/images/profileImage.jpg" alt="Generic user image" class="img-fluid img-thumbnail m-2" id="indexImage" style="width: 150px; z-index: 1">
-
-                  @else
-                  <img src="/storage/{{ $message->user->image }} " class="img-fluid rounded-start" id="indexImage" alt="User Image">
-                  @endif
+    </div>
+  </div>
 
 
 
-                </div>
-                <div class="col ms-3 pt-3">
-                  <div class="card-body">
-                    <a href="{{ route('MsgReply.show', $message->report_id) }}">
-                      <h5 class="card-title ">{{ $message->firstName}}</h5>
-                      <p class="card-text ">{{ $message->message }}</p>
-                      <p class="card-text mb-3"><small class="text-muted">Message Received {{ $message->created_at->diffforhumans() }}</small>
-                      </p>
-                    </a>
 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reply">Reply</button>
+  @foreach($messages as $message)
 
-                    <!-- Modal to Reply-->
-                    <div class="modal fade" id="reply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle"><strong>Reply to Message</strong></h5>
-
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-
-                            </button>
-                          </div>
-
-                          <form action="{{ route('MsgReply.store') }}" enctype="multipart/form-data" method="post">
-                            @csrf
-
-                            <div class="modal-body">
-                              <input type="hidden" name="FromUser_id" id="FromUser_id" value="{{ Auth::user()->id }}" />
-
-                              <input type="hidden" name="firstName" id=" firstName " value="{{ Auth::user()->firstName }}" />
-
-                              <input type="hidden" name="message_id" value="{{$message->id}}">
-
-                              <input type="hidden" name="ToUser_id" value="{{$message->ToUser_id}}">
-
-                              <input type="hidden" name="report_id" value="{{$message->report_id}}">
-
-                              <input type="hidden" name="ToUser_firstName" value="{{$message->firstName}}">
+  @if($message->user_id === auth()->user()->id)
+  <div class="card mb-3 offset-sm-1" style="max-width: 540px;">
+    <div class="row g-0">
 
 
-                              <div class="col-md-12">
-                                <label for="messageInput" class="form-label">Message</label><br>
-                                <textarea id="message" class="form-control @error('message') is-invalid @enderror" id="messageInput" name="message" style="height: 200px" placeholder="Max 500 characters" minlength="5" maxlength="500"></textarea>
-                                @error('message')
-                                <span class="invalid-feedback" role="alert">
-                                  <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-
-                              </div>
-                              <br>
-
-                            </div>
-                            <div class="modal-footer">
-                              <div class="col-md-12 text-center">
-
-                                <button type="submit" class="btn btn-primary btn btn-sm">Reply to Message </button>
-                              </div>
-                            </div>
-                        </div>
-
-                        </form>
-                      </div>
-                    </div> <!-- End reply modal -->
-                    <!-- Button trigger modal -->
-                    @if($message->ToUser_id === Auth::user()->id || auth()->user()->is_admin == 1)
-
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                      Delete
-                    </button>
-                    @endif
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="deleteModalLabel"><strong>Are you sure you want to delete this message?</strong></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            Deleting this message is permanent and cannot be undone!!
-                          </div>
-                          <div class="modal-footer">
-
-                            <button type="button" class="btn btn-secondary align-center" data-bs-dismiss="modal">Close</button>
-                            <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger">Delete Message</a>
-                            <form action="{{ route('messages.destroy', $message->id) }}" method="post">
-                              @method('DELETE')
-                              @csrf
-                            </form>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div> <!-- End Modal -->
-
-
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-
-            <!-- End -->
-          </li>
-
-
-          <!-- End -->
-        </ul>
+      <div class="col">
+        <div class="card-body " id="messageBody">
+          <h5>{{Auth::user()->firstName }}</h5>
+          <p class="card-text ">{{ $message->message }}</p>
+          <p class="card-text text-end"><small class="text-muted ">Message received {{ \Carbon\Carbon::parse($message->created_at)->diffForHumans() }}</small></p>
+        </div>
       </div>
     </div>
+  </div>
 
-    <br>
+  @else
+
+  <div class="card mb-3 offset-sm-6 " style="max-width: 540px; ">
+    <div class="row g-0 ">
+
+      <div class="col">
+        <div class="card-body " id="replyBody">
+          <h5>{{ $message->firstName }}</h5>
+          <p class="card-text ">{{ $message->message }}</p>
+          <p class="card-text text-end"><small class="text-muted ">Message received {{ \Carbon\Carbon::parse($message->created_at)->diffForHumans() }}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @endif
 
 
-    @endforeach
-    @endif
-</div>
+  @endforeach
+
+  <div class="col-8 offset-2">
+
+    <form action="{{ route('messages.store') }}" enctype="multipart/form-data" method="post">
+      @csrf
+
+      <div class="input-group mb-3">
+
+        <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}" />
+
+        <input type="hidden" name="firstName" id=" firstName " value="{{ Auth::user()->firstName }}" />
+
+
+        <input type="hidden" name="ToUser_id" value="{{$message->ToUser_id}}">
+
+        <input type="hidden" name="report_id" value="{{$message->report_id}}">
+
+        <input type="hidden" name="ToUser_firstName" value="{{$message->firstName}}">
+
+
+
+
+        <input type="text" name="message" class="form-control" placeholder="Reply, Max 500 Chars" aria-label="Reply" aria-describedby="Message Reply" minlength="5" maxlength="500">
+        <div class="input-group-append">
+
+          <button class="btn btn-outline-primary" type="submit">Send</button>
+        </div>
+      </div>
+
+
+    </form>
+
+  </div>
+
+
+</div> <!-- End container -->
+
 <!-- Pagination -->
 <div class="pagination justify-content-center mt-4">
   {{$messages->links()}}
