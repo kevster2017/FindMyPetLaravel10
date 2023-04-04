@@ -23,6 +23,22 @@ class PrivateMessageController extends Controller
 
     public function index()
     {
+        /*
+        $messages = PrivateMessage::select('id', 'firstName', 'message', 'created_at')
+            ->distinct()
+            ->paginate(3);
+           
+        $messages = DB::table('private_messages')
+
+            ->groupBy('firstName')
+            ->get();
+ */
+        $messages = PrivateMessage::distinct('firstName')->pluck('firstName');
+
+
+        return view('privateMessage.index', compact('messages'));
+
+        /*
         if (auth()->check() && auth()->user()->is_admin == 1) {
             $arr['messages'] = PrivateMessage::orderBy('created_at', 'asc')->paginate(3);
             return view('privateMessage.index')->with($arr);
@@ -30,6 +46,7 @@ class PrivateMessageController extends Controller
         } else {
             return abort(403);
         }
+        */
     }
 
     /**
@@ -86,28 +103,16 @@ class PrivateMessageController extends Controller
     public function show($id)
     {
 
-        /*
-      $id = auth()->user()->id;
-      $missing = DB::table('missings')
-      ->where('user_id', $id)
-      ->get();
 
-      
-        $messages = PrivateMessage::orderBy('created_at', 'DESC')
-        ->where('ToUser_id', $id)
-        ->paginate(3);
-
-        return view('privateMessage.show', [
-            'messages' => $messages,
-            'missing' => $missing,
-            
-        ]);
-
-        */
 
         $messages = PrivateMessage::orderBy('id', 'DESC')
-            ->where('report_id', $id)
-            ->paginate(3);
+            ->where('ToUser_id', auth()->user()->id)
+
+            ->paginate(5);
+        //dd($messages);
+        $messages->setCollection($messages->groupBy('user_id'));;
+        //dd($messages);
+
 
 
         return view('privateMessage.show', [

@@ -108,19 +108,19 @@
 
     <div class="col-sm-2 pt-5">
       <div class="vstack gap-2">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postfoundMessage{{ $found->id }}">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postFoundMessage{{ $found->id }}">
           Post Message
         </button>
 
         <!-- Modal to Contact Owner-->
-        <div class="modal fade" id="postfoundMessage{{ $found->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="postFoundMessage{{ $found->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle"><strong>Post Message about found {{ $found->petType }}</strong></h5>
 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
+
                 </button>
               </div>
               <form style="width:90%;" action="{{ route('messages.store') }}" enctype="multipart/form-data" method="post">
@@ -173,15 +173,15 @@
     <div class="col-sm-2 pt-5">
       <div class="vstack gap-2">
 
-        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#privatefoundMessage{{ $found->petType }}">
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#privateFoundMessage{{ $found->petType }}">
           Private Message
         </button>
         <!-- Modal to Contact Owner-->
-        <div class="modal fade" id="privatefoundMessage{{ $found->petType }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="privateFoundMessage{{ $found->petType }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"><strong>Send Private Message about {{ $found->petName }}</strong></h5>
+                <h5 class="modal-title" id="exampleModalLongTitle"><strong>Send Private Message about found {{ $found->petType }}</strong></h5>
 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                 </button>

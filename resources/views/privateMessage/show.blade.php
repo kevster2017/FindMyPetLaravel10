@@ -79,7 +79,7 @@
 
                               <input type="hidden" name="private_message_id" value="{{$message->id}}">
 
-                              <input type="hidden" name="ToUser_id" value="{{$message->ToUser_id}}">
+                              <input type="hidden" name="ToUser_id" value="{{$message->user_id}}">
 
                               <input type="hidden" name="report_id" value="{{$message->report_id}}">
 
