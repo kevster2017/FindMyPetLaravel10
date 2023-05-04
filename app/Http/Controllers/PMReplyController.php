@@ -95,7 +95,7 @@ class PMReplyController extends Controller
 
         $message = PMReply::findOrFail($id);
 
-        dd($message);
+        // dd($message);
 
         $msgid = $message->private_message_id;
 
@@ -103,12 +103,18 @@ class PMReplyController extends Controller
             ->join('pmreplys', 'private_messages.id', '=', 'pmreplys.private_message_id')
             ->where('private_messages.id', $msgid)
             ->select('pmreplys.*', 'private_messages.id as private_messages_id')
+            ->orderBy('id', 'DESC')
             ->paginate(3);
 
-
+        $privmessages = DB::table('private_messages')
+            ->join('pmreplys', 'private_messages.id', '=', 'pmreplys.private_message_id')
+            ->where('private_messages.id', $msgid)
+            ->select('pmreplys.*', 'private_messages.id as private_messages_id')
+            ->first();
 
         return view('PMReply.show', [
             'messages' => $messages,
+            'privmessages' => $privmessages,
 
         ]);
     }

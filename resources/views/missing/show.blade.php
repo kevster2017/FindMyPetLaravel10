@@ -60,19 +60,19 @@
 
 
       <div class="row mb-3">
-        @if($missings === NULL)
+        @if($founds === NULL)
 
         <div class="col" id="matchChipNull">
           <h5>Matching Chip Number: </h5>
           <p class="lead fw-normal mb-1">No Microchip Number available</p>
         </div>
         @else
-        @foreach($missings as $missing)
+        @foreach($founds as $found)
 
         <div class="col" id="matchChipTrue">
           <h5>Matching Chip Number: </h5>
-          <a href="{{ route('found.show', $missing->founds_id) }} ">
-            <p class="font-italic mb-1">Matching Profile: {{$missing->founds_id}}, Found in: {{ $missing->town }}</p>
+          <a href="{{ route('found.show', $found->founds_id) }} ">
+            <p class="font-italic mb-1">Matching Profile: {{$found->founds_id}}, Found in: {{ $found->town }}</p>
           </a>
         </div>
         @endforeach

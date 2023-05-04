@@ -8,7 +8,7 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Home</a></li>
-
+      <li class="breadcrumb-item"><a href="{{ route('privateMessage.show', $privmessages->private_message_id) }}">Private Messages</a></li>
       <li class="breadcrumb-item active" aria-current="page">Message Replies</li>
     </ol>
   </nav>
@@ -21,17 +21,17 @@
     <div class="row" id="navText">
       <div class="col-sm-2">
         <div class="my-3" id="navText">
-          <a href="index.html" class="mt-3">
+          <a href="{{ route('privateMessage.show', $privmessages->private_message_id) }}" class="mt-3">
             <<< Back to Index </a>
         </div>
 
 
       </div>
       <div class="col-sm-4">
-        <img src="Images/tiger.jpg " class="img-fluid" alt="... " id="navImg">
+        <img src="/images/maineCoon.jpg " class="img-fluid" alt="... " id="navImg">
       </div>
       <div class="col-sm-6">
-        <h5 class="card-title my-3">From Name</h5>
+        <h5 class="card-title my-3">From: {{ $privmessages->firstName }}</h5>
       </div>
 
     </div>
@@ -85,13 +85,13 @@
 
         <input type="hidden" name="firstName" id=" firstName " value="{{ Auth::user()->firstName }}" />
 
-        <input type="hidden" name="private_message_id" value="{{$messages->private_message_id}}">
+        <input type="hidden" name="private_message_id" value="{{$message->private_message_id}}">
 
         <input type="hidden" name="ToUser_id" value="{{$message->ToUser_id}}">
 
-        <input type="hidden" name="report_id" value="{{$messages->report_id}}">
+        <input type="hidden" name="report_id" value="{{$message->report_id}}">
 
-        <input type="hidden" name="ToUser_firstName" value="{{$messages->firstName}}">
+        <input type="hidden" name="ToUser_firstName" value="{{$message->firstName}}">
 
 
 

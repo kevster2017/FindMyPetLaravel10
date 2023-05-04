@@ -28,7 +28,7 @@
                 <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}" />
 
                 <input type="hidden" name="reunited" id="reunited" value="{{ 0 }}" />
-                <div class="container mt-3">
+                <div class="container ms-3 mt-3">
 
                     <input type="file" name="img1" id="img1" class="inputfile">
                     @error('img1')
@@ -47,7 +47,7 @@
                 <div class="form-group row mt-3">
                     <label for="petType" class="col col-form-label">Select Pet Type</label>
                     <div class="col">
-                        <select class="form-select @error('petType') is-invalid @enderror" name="petType" value="{{ old('petType') }}" aria-label="Default select example">
+                        <select class="form-select @error('petType') is-invalid @enderror" name="petType" value="{{ $found->petType }}" aria-label="Default select example">
 
                             <option selected="Dog">Dogs</option>
                             <option value="Cat">Cats</option>
@@ -65,7 +65,7 @@
                 <div class="form-group row mt-3">
                     <label for="description" class="col-md-3 col-form-label">Description</label>
                     <div class="col">
-                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" rows="5" style="height:100%" placeholder="Max 250 Characters" minlength="3" maxlength="250 "></textarea>
+                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="5" style="height:100%" placeholder="Max 250 Characters" minlength="3" maxlength="250 ">{{ $found->description }}</textarea>
                         @error('about')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -77,7 +77,7 @@
                 <div class="form-group row mt-4">
                     <label for="town" class="col-md-3 col-form-label">Town where pet was found</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('town') is-invalid @enderror" name="town" id="town" value="{{ old('town') }}" placeholder="Enter Town">
+                        <input type="text" class="form-control @error('town') is-invalid @enderror" name="town" id="town" value="{{ $found->town}}" placeholder="Enter Town">
 
                         @error('town')
                         <span class="invalid-feedback" role="alert">
@@ -92,7 +92,7 @@
                 <div class="form-group row mt-2">
                     <label for="postCode" class="col-md-3 col-form-label">Post Code where pet was found (First 3 or 4 digits)</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('postCode') is-invalid @enderror" name="postCode" placeholder="Enter Post Code (First 3 or 4 digits)" value="{{ old('postCode') }}">
+                        <input type="text" class="form-control @error('postCode') is-invalid @enderror" name="postCode" placeholder="Enter Post Code (First 3 or 4 digits)" value="{{ $found->postCode }}">
                         @error('postCode')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -104,7 +104,7 @@
                 <div class="form-group row mt-4">
                     <label for="chipNum" class="col-md-3 col-form-label">Enter Microchip number (if known)</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('chipNum') is-invalid @enderror" name="chipNum" id="chipNum" value="{{ old('chipNum') }}" placeholder="Enter Microchip Number">
+                        <input type="text" class="form-control @error('chipNum') is-invalid @enderror" name="chipNum" id="chipNum" value="{{ $found->chipNum }}" placeholder="Enter Microchip Number">
 
                         @error('chipNum')
                         <span class="invalid-feedback" role="alert">

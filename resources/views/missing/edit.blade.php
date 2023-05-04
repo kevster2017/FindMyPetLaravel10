@@ -36,7 +36,7 @@
 
 
 
-                <div class="container mt-3">
+                <div class="container mt-3 ms-3">
 
                     <input type="file" name="img1" id="img1" class="inputfile">
                     @error('img1')
@@ -53,7 +53,7 @@
                 <div class="form-group row mt-3">
                     <label for="petType" class="col col-form-label">Select Pet Type</label>
                     <div class="col">
-                        <select class="form-select @error('petType') is-invalid @enderror" name="petType" value="{{ old('petType') }}" aria-label="Default select example">
+                        <select class="form-select @error('petType') is-invalid @enderror" name="petType" value="{{ $missing->petType }}" aria-label="Default select example">
 
                             <option selected="Dog">Dogs</option>
                             <option value="Cat">Cats</option>
@@ -71,7 +71,7 @@
                 <div class="form-group row mt-3">
                     <label for="petName" class="col-md-3 col-form-label">Pet Name</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('petName') is-invalid @enderror" name="petName" placeholder="Enter Pet Name" value="{{ old('petName') }}">
+                        <input type="text" class="form-control @error('petName') is-invalid @enderror" name="petName" placeholder="Enter Pet Name" value="{{ $missing->petName }}">
                         @error('petName')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -83,7 +83,7 @@
                 <div class="form-group row mt-3">
                     <label for="petAge" class="col-md-3 col-form-label">Pet Age</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('petAge') is-invalid @enderror" name="petAge" placeholder="Enter Pet Age" value="{{ old('petAge') }}">
+                        <input type="text" class="form-control @error('petAge') is-invalid @enderror" name="petAge" value="{{ $missing->petAge }}">
                         @error('petAge')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -95,7 +95,7 @@
                 <div class="form-group row mt-3">
                     <label for="description" class="col-md-3 col-form-label">Description</label>
                     <div class="col">
-                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" rows="5" style="height:100%" placeholder="Max 250 Characters" minlength="3" maxlength="250 "></textarea>
+                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="5" style="height:100%" placeholder="Max 250 Characters" minlength="3" maxlength="250 ">{{ $missing->description }}</textarea>
                         @error('about')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -107,7 +107,7 @@
                 <div class="form-group row mt-4">
                     <label for="town" class="col-md-3 col-form-label">Town</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('town') is-invalid @enderror" name="town" id="town" value="{{ old('town') }}" placeholder="Enter Town">
+                        <input type="text" class="form-control @error('town') is-invalid @enderror" name="town" id="town" value="{{ $missing->town }}" placeholder="Enter Town">
 
                         @error('town')
                         <span class="invalid-feedback" role="alert">
@@ -122,7 +122,7 @@
                 <div class="form-group row mt-2">
                     <label for="postCode" class="col-md-3 col-form-label">Post Code (First 3 or 4 digits)</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('postCode') is-invalid @enderror" name="postCode" placeholder="Enter Post Code (First 3 or 4 digits)" value="{{ old('postCode') }}">
+                        <input type="text" class="form-control @error('postCode') is-invalid @enderror" name="postCode" placeholder="Enter Post Code (First 3 or 4 digits)" value="{{ $missing->postCode }}">
                         @error('postCode')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -134,7 +134,7 @@
                 <div class="form-group row mt-4">
                     <label for="chipNum" class="col-md-3 col-form-label">Enter Microchip number (if known)</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('chipNum') is-invalid @enderror" name="chipNum" id="chipNum" value="{{ old('chipNum') }}" placeholder="Enter Microchip Number">
+                        <input type="text" class="form-control @error('chipNum') is-invalid @enderror" name="chipNum" id="chipNum" value="{{ $missing->chipNum }}" placeholder="Enter Microchip Number">
 
                         @error('chipNum')
                         <span class="invalid-feedback" role="alert">

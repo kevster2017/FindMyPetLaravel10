@@ -15,7 +15,7 @@
 <div class="container py-3">
 
 
-    <h1 class="text-center mb-2">My Found Pets</h1>
+    <h1 class="text-center pb-3">My Found Pets</h1>
     @if($foundPets->count() < 1) <h1 class="text-center">No Found Pets Reported </h1>
         @else
         @foreach($foundPets as $foundPet)
@@ -35,7 +35,13 @@
                                 <div class="col ms-3 pt-3">
                                     <div class="card-body">
                                         <a href="{{ route('found.show', $foundPet->id) }}">
+
+                                            @if($foundPet->petName == NULL)
+                                            <h5 class="card-title">Pet name unknown</h5>
+                                            @else
                                             <h5 class="card-title">Name: {{ $foundPet->petName}}</h5>
+
+                                            @endif
                                         </a>
 
                                         <p class="card-text">Description: {{ $foundPet->description }}</< /p>

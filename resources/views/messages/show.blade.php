@@ -79,29 +79,30 @@
 
   <div class="col-8 offset-2">
 
-    <form action="{{ route('messages.store') }}" enctype="multipart/form-data" method="post">
+    <form action="{{ route('messages.store') }}" enctype="multipart/form-data" method="post" id="myForm" name="myForm">
       @csrf
 
       <div class="input-group mb-3">
 
         <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}" />
 
-        <input type="hidden" name="firstName" id=" firstName " value="{{ Auth::user()->firstName }}" />
+        <input type="hidden" name="firstName" id=" firstName" value="{{ Auth::user()->firstName }}" />
 
 
-        <input type="hidden" name="ToUser_id" value="{{$message->ToUser_id}}">
+        <input type="hidden" name="ToUser_id" id="ToUser_id" value="{{$message->ToUser_id}}">
 
-        <input type="hidden" name="report_id" value="{{$message->report_id}}">
+        <input type="hidden" name="report_id" id="report_id" value="{{$message->report_id}}">
 
-        <input type="hidden" name="ToUser_firstName" value="{{$message->firstName}}">
-
-
+        <input type="hidden" name="ToUser_firstName" id="ToUser_firstName" value="{{$message->firstName}}">
 
 
-        <input type="text" name="message" class="form-control" placeholder="Reply, Max 500 Chars" aria-label="Reply" aria-describedby="Message Reply" minlength="5" maxlength="500">
+
+
+        <input type="text" name="message" id="message" class="form-control" placeholder="Reply, Max 500 Chars" aria-label="Reply" aria-describedby="Message Reply" minlength="5" maxlength="500">
         <div class="input-group-append">
 
-          <button class="btn btn-outline-primary" type="submit">Send</button>
+          <button class="btn btn-outline-primary" type="submit" id="btn-save">Send</button>
+          <input type="hidden" name="message_id" id="message_id" value="0">
         </div>
       </div>
 

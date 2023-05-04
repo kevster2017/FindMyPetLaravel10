@@ -41,7 +41,11 @@
     <div class="col-sm-8">
       <div class="row my-3">
         <div class="col">
+          @if($found->petName != NULL)
           <h5>Name: {{ $found->petName }}</h5>
+          @else
+          <h5>Pet name unknown</h5>
+          @endif
         </div>
 
         <div class="col">

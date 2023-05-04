@@ -17,9 +17,9 @@
 
   <h1 class="text-center mb-5">My Private Messages</h1>
 
-  @if($messages->count() < 1) <h1 class="text-center">No Private Messages Received </h1>
+  @if($privmessages->count() < 1) <h1 class="text-center">No Private Messages Received </h1>
     @else
-    @foreach($messages as $message)
+    @foreach($privmessages as $message)
 
     <div class="row">
       <div class="col-sm-8 mx-auto">
@@ -35,12 +35,14 @@
               <div class="row g-0">
                 <div class="col">
 
-                  @if($message->user->image === NULL)
+                  @if($images === NULL)
 
                   <img src="/images/profileImage.jpg" alt="Generic user image" class="img-fluid img-thumbnail m-2" id="indexImage" style="width: 150px; z-index: 1">
 
                   @else
+
                   <img src="/storage/{{ $message->user->image }} " class="img-fluid rounded-start" id="indexImage" alt="User Image">
+
                   @endif
 
 
@@ -170,7 +172,7 @@
 </div>
 <!-- Pagination -->
 <div class="pagination justify-content-center mt-4">
-  {{$messages->links()}}
+  {{$privmessages->links()}}
 </div>
 
 @if(count($errors) > 0 )

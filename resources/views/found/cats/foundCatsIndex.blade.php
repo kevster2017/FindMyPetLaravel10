@@ -34,7 +34,12 @@
                             <div class="col ms-3 pt-3">
                                 <div class="card-body">
                                     <a href="{{ route('found.show', $foundCat->id) }}">
+                                        @if($foundCat->petName == NULL)
+                                        <h5 class="card-title">Cat name unknown</h5>
+                                        @else
                                         <h5 class="card-title">Name: {{ $foundCat->petName}}</h5>
+
+                                        @endif
                                     </a>
 
                                     <p class="card-text">Description: {{ $foundCat->description }}</< /p>

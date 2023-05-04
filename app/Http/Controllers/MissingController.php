@@ -223,16 +223,16 @@ class MissingController extends Controller
 
         $chip = $missing->chipNum;
 
-        $missings = DB::table('founds')
+        $founds = DB::table('founds')
             ->join('missings', 'founds.chipNum', '=', 'missings.chipNum')
             ->where('founds.chipNum', $chip)
             ->select('missings.*', 'founds.id as founds_id')
             ->get();
-
+        // dd($missings);
         return view('missing.show', [
             'shareButtons' => $shareButtons,
             'missing' => $missing,
-            'missings' => $missings,
+            'founds' => $founds,
 
         ]);
     }

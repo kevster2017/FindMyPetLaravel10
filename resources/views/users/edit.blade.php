@@ -30,13 +30,13 @@
 
                     <div class="container mt-5 ms-3">
 
-                        <input type="file" name="img1" id="img1" class="form-control-file ">
-                        @error('img1')
+                        <input type="file" name="image" id="image" class="form-control-file ">
+                        @error('image')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
-                        <label for="img1">
+                        <label for="image">
                             <i class="fa-solid fa-camera me-2"></i>
                             <span>Choose Main Picture</span>
                         </label>

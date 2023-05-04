@@ -13,6 +13,7 @@ use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\PMReplyController;
 use App\Http\Controllers\MsgReplyController;
 use App\Http\Controllers\SocialShareController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,3 +82,8 @@ Route::get('/Register', function () {
 });
 
 Route::get('social-share', [SocialShareController::class, 'index']);
+
+Route::controller(PostController::class)->group(function () {
+    Route::get('posts', 'index');
+    Route::post('posts', 'store')->name('posts.store');
+});

@@ -59,7 +59,7 @@ class UserController extends Controller
         // Only update details if field is not empty
         if (!empty($request->hasFile('image'))) {
 
-            $user->image = (request('image')->store('images', 'public'));
+            $user->image = (request('image')->store('uploads', 'public'));
 
             $image = Image::make(public_path("storage/{$user->image}"))->orientate()->fit(180, 180); //Save updated image as 180 x 180 px
             $image->save();
@@ -79,6 +79,8 @@ class UserController extends Controller
         }
 
         $user->save();
+
+       // dd($user);
 
         return redirect()->route('users.show', $user->id)->with('success', 'Profile successfully updated!!');
     }
