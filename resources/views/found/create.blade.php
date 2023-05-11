@@ -56,9 +56,9 @@
                 </div>
 
 
-                <div class="form-group row mt-3">
-                    <label for="petType" class="col col-form-label ms-5">Select Pet Type</label>
-                    <div class="col">
+                <div class="form-group row mt-3 pb-3">
+                    <label for="petType" class="col-sm-3 col-form-label ms-5">Select Pet Type</label>
+                    <div class="col-sm-4">
                         <select class="form-select @error('petType') is-invalid @enderror" name="petType" value="{{ old('petType') }}" aria-label="Default select example">
 
                             <option selected="Dog">Dog</option>
@@ -72,7 +72,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row mt-4">
+                <div class="form-group row mt-3">
                     <label for="petName" class="col-sm-3 col-form-label ms-5">Pet Name (If known)</label>
                     <div class="col">
                         <input type="text" class="form-control @error('petName') is-invalid @enderror" name="petName" id="petName" placeholder="Enter Pet Name if known"> @error('petName')
@@ -96,7 +96,7 @@
                     <br>
                 </div>
 
-                <div class="form-group row mt-3">
+                <div class="form-group row mt-3 pb-3">
                     <label for="description" class="col-sm-3 col-form-label ms-5">Description</label>
                     <div class="col">
                         <textarea class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" rows="5" style="height:100%" placeholder="Max 250 Characters" minlength="3" maxlength="250 "></textarea> @error('about')

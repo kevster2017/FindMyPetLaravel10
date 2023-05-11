@@ -49,7 +49,7 @@
 
                 <div class="container mt-3">
 
-                    <input type="file" name="img1" id="img1" class="inputfile  ms-5"> @error('img1')
+                    <input type="file" name="img1" id="img1" class="inputfile ms-5"> @error('img1')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span> @enderror
@@ -59,9 +59,9 @@
                     </label>
 
                 </div>
-                <div class="form-group row mt-3">
-                    <label for="petType" class="col col-form-label ms-5">Select Pet Type</label>
-                    <div class="col">
+                <div class="form-group row mt-3 pb-3">
+                    <label for="petType" class="col-sm-3 col-form-label ms-5">Select Pet Type</label>
+                    <div class="col-sm-4">
                         <select class="form-select @error('petType') is-invalid @enderror" name="petType" aria-label="Default select example">
 
                             <option selected="Dog">Dog</option>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row mt-3">
+                <div class="form-group row mt-3 pb-3">
                     <label for="petName" class="col-sm-3 col-form-label ms-5">Pet Name</label>
                     <div class="col">
                         <input type="text" class="form-control @error('petName') is-invalid @enderror" name="petName" placeholder="Enter Pet Name"> @error('petName')
@@ -85,7 +85,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row mt-3">
+                <div class="form-group row mt-3 pb-3">
                     <label for="petAge" class="col-sm-3 col-form-label ms-5">Pet Age</label>
                     <div class="col">
                         <input type="text" class="form-control @error('petAge') is-invalid @enderror" name="petAge" placeholder="Enter Pet Age"> @error('petAge')
@@ -95,7 +95,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row mt-3">
+                <div class="form-group row mt-3 pb-3">
                     <label for="description" class="col-sm-3 col-form-label ms-5">Description</label>
                     <div class="col">
                         <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="5" style="height:100%" placeholder="Max 250 Characters" minlength="3" maxlength="250 "></textarea> @error('about')
@@ -105,7 +105,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row mt-4">
+                <div class="form-group row mt-3">
                     <label for="town" class="col-sm-3 col-form-label ms-5">Town</label>
                     <div class="col">
                         <input type="text" class="form-control @error('town') is-invalid @enderror" name="town" id="town" placeholder="Enter Town"> @error('town')
@@ -117,7 +117,7 @@
                     <br>
                 </div>
 
-                <div class="form-group row mt-2">
+                <div class="form-group row mt-3">
                     <label for="postCode" class="col-sm-3 col-form-label ms-5">Post Code (First 3 or 4 digits)</label>
                     <div class="col">
                         <input type="text" class="form-control @error('postCode') is-invalid @enderror" name="postCode" placeholder="Enter Post Code (First 3 or 4 digits)"> @error('postCode')
@@ -127,7 +127,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row mt-4">
+                <div class="form-group row mt-3">
                     <label for="chipNum" class="col-sm-3 col-form-label ms-5">Enter Microchip number (if known)</label>
                     <div class="col">
                         <input type="text" class="form-control @error('chipNum') is-invalid @enderror" name="chipNum" id="chipNum" placeholder="Enter Microchip Number"> @error('chipNum')

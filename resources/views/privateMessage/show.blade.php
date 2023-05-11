@@ -15,7 +15,7 @@
 
 <div class="container py-3">
 
-  <h1 class="text-center mb-5">My Private Messages</h1>
+  <h1 class="text-center pb-3">My Private Messages</h1>
 
   @if($privmessages->count() < 1) <h1 class="text-center">No Private Messages Received </h1>
     @else

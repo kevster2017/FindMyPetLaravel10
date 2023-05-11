@@ -55,14 +55,22 @@
             <div class="mt-2">
               <p class="lead fw-normal mb-1">Town</p>
               <div class="p-4" style="background-color: #f8f9fa;">
+                @if($users->town === NULL)
+                <p class="font-italic mb-1">Edit profile to add town</p>
+                @else
                 <p class="font-italic mb-1">{{Auth::User()->town}}</p>
+                @endif
               </div>
             </div>
 
             <div class="mt-5">
               <p class="lead fw-normal mb-1">Postcode</p>
               <div class="p-4" style="background-color: #f8f9fa;">
+                @if($users->town === NULL)
+                <p class="font-italic mb-1">Edit profile to add postcode</p>
+                @else
                 <p class="font-italic mb-1">{{Auth::User()->postCode}}</p>
+                @endif
               </div>
             </div>
           </div>

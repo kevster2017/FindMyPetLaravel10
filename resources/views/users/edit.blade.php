@@ -19,7 +19,7 @@
     <div class="container mt-5 d-flex justify-content-center">
 
         <div class="card mb-3" style="width: 75%">
-            <img src="/images/cheetah2.jpg" class="card-img-top" alt="...">
+            <img src="/images/cheetah2.jpg" class="card-img-top" alt="Cheetah Image">
 
 
             <div class="card d-flex">
@@ -48,7 +48,7 @@
                     <div class="form-group row mt-5">
                         <label for="firstName" name="firstName" class="col-md-3 col-form-label">First Name</label>
                         <div class="col">
-                            <input type="text" class="form-control @error('firstName') is-invalid @enderror" name="firstName" id="firstName" value="{{ old('firstName') }}" placeholder="Enter First Name">
+                            <input type="text" class="form-control @error('firstName') is-invalid @enderror" name="firstName" id="firstName" value="{{ old('firstName') }}" placeholder="{{ $users->firstName }}">
 
                             @error('firstName')
                             <span class="invalid-feedback" role="alert">
@@ -63,7 +63,7 @@
                     <div class="form-group row mt-5">
                         <label for="surname" class="col-md-3 col-form-label">Surname</label>
                         <div class="col">
-                            <input type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" placeholder="Enter Post Code (First 3 or 4 digits)" value="{{ old('surname') }}">
+                            <input type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" placeholder="{{ $users->surname }}" value="{{ old('surname') }}">
                             @error('surname')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -75,7 +75,13 @@
                     <div class="form-group row mt-5">
                         <label for="town" class="col-md-3 col-form-label">Town</label>
                         <div class="col">
-                            <input type="text" class="form-control @error('town') is-invalid @enderror" name="town" placeholder="Enter Post Code (First 3 or 4 digits)" value="{{ old('town') }}">
+
+                            @if($users->town === NULL)
+                            <input type="text" class="form-control @error('town') is-invalid @enderror" name="town" placeholder="Enter Town" value="{{ old('town') }}">
+                            @else
+                            <input type="text" class="form-control @error('town') is-invalid @enderror" name="town" placeholder="{{ $users->town }}" value="{{ old('town') }}">
+                            @endif
+
                             @error('town')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -87,7 +93,18 @@
                     <div class="form-group row mt-5">
                         <label for="postCode" class="col-md-3 col-form-label">Postcode (First 3 or 4 digits)</label>
                         <div class="col">
-                            <input type="text" class="form-control @error('postCode') is-invalid @enderror" name="postCode" placeholder="Enter Post Code (First 3 or 4 digits)" value="{{ old('postCode') }}">
+
+                            @if($users->postCode === NULL)
+                            <input type="text" class="form-control @error('postCode') is-invalid @enderror" name="postCode" placeholder="Enter Post Code, first 3 or 4 digits" value="{{ old('postCode') }}">
+
+                            @else
+
+                            <input type="text" class="form-control @error('postCode') is-invalid @enderror" name="postCode" placeholder="{{ $users->postCode }}" value="{{ old('postCode') }}">
+
+
+                            @endif
+
+
                             @error('postCode')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

@@ -15,7 +15,7 @@
 <div class="container py-3">
 
 
-    <h1 class="text-center mb-2">My Missing Pets</h1>
+    <h1 class="text-center pb-3">My Missing Pets</h1>
     @if($missingPets->count() < 1) <h1 class="text-center">No Missing Pets Reported </h1>
         @else
         @foreach($missingPets as $missingPet)

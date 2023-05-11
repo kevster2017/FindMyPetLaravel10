@@ -23,7 +23,7 @@
                         <div class="card mb-3 offset-sm-1" style="max-width: 1080px; ">
                             <div class="row g-0 ">
                                 <div class="col-sm-4 ">
-                                    <img src="Images/tiger.jpg " class="img-fluid" alt="... ">
+                                    <img src="/images/mainCoon.jpg " class="img-fluid" alt="... ">
                                 </div>
                                 <div class="col-sm-8 " id="replyBody">
                                     <div class="card-body " id="replyBody">

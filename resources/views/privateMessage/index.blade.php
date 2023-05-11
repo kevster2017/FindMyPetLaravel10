@@ -17,7 +17,7 @@
 
 
 <div class="container">
-  <h1 class="text-center mb-5">Private Messages</h1>
+  <h1 class="text-center pb-3">Private Messages</h1>
   @if($messages->count() < 1) <h1 class="text-center">No Messages Received </h1>
     @else
 

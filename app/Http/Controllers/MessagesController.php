@@ -94,11 +94,16 @@ class MessagesController extends Controller
             ->where('report_id', $id)
             ->paginate(3);
 
+        $return = Messages::orderBy('id', 'DESC')
+            ->where('report_id', $id)
+            ->first();
 
+        //dd($return);
 
 
         return view('messages.show', [
             'messages' => $messages,
+            'return' => $return
 
 
         ]);
