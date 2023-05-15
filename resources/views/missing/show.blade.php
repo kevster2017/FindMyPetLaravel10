@@ -102,14 +102,18 @@
 
   <div class="row d-flex justify-content-center" id="details">
     <div class="col-sm-4" id="recentPhoto">
-      @if($missing->img2 === '/public/images/profileImage.jpg')
-      <img src="/images/profileImage.jpg" class="img-responsive mb-2" alt="missingImage" id="image">
+      @if($missing->img2 === NULL)
+      <img src="\public\images\profileImage.jpg" class="img-responsive mb-2" alt="missingImage" id="image">
       @else
       <img src="/storage/{{$missing->img2}} " class="img-responsive mb-2" alt="missingImage" id="image">
       @endif
     </div>
     <div class="col-sm-4" id="recentPhoto">
-      <img src="/storage/{{$missing->img2}} " class="img-responsive" alt="missingImage" id="image">
+      @if($missing->img3 === NULL)
+      <img src="/images/profileImage.jpg" class="img-responsive mb-2" alt="missingImage" id="image">
+      @else
+      <img src="/storage/{{$missing->img3}} " class="img-responsive" alt="missingImage" id="image">
+      @endif
     </div>
 
 

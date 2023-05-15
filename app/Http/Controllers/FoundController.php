@@ -137,7 +137,7 @@ class FoundController extends Controller
         ]);
 
 
-        $imagePath = (request('img1')->store('images', 'public'));
+        $imagePath = (request('img1')->store('uploads', 'public'));
         $imagePath2 = null;
         $imagePath3 = null;
 
@@ -145,25 +145,25 @@ class FoundController extends Controller
             $imagePath = "/uploads/profileImage.jpg
 ";
         } else {
-            $imagePath = $request->file('img1')->store('images', 'public');
+            $imagePath = $request->file('img1')->store('uploads', 'public');
             $image = Image::make(public_path("storage/{$imagePath}"))->orientate()->fit(180, 180); //Save updated image as 180 x 180 px
             $image->save();
         }
 
         if ($request->hasFile('img2') == null) {
-            $imagePath2 = "/uploads/profileImage.jpg
+            $imagePath2 = "/images/profileImage.jpg
 ";
         } else {
-            $imagePath2 = $request->file('img2')->store('images', 'public');
+            $imagePath2 = $request->file('img2')->store('uploads', 'public');
             $image = Image::make(public_path("storage/{$imagePath}"))->orientate()->fit(180, 180); //Save updated image as 180 x 180 px
             $image->save();
         }
 
         if ($request->hasFile('img3') == null) {
-            $imagePath3 = "/uploads/profileImage.jpg
+            $imagePath3 = "/images/profileImage.jpg
 ";
         } else {
-            $imagePath3 = $request->file('img3')->store('images', 'public');
+            $imagePath3 = $request->file('img3')->store('uploads', 'public');
             $image = Image::make(public_path("storage/{$imagePath}"))->orientate()->fit(180, 180); //Save updated image as 180 x 180 px
             $image->save();
         }

@@ -33,7 +33,7 @@
       @if($found->img1 === NULL)
       <img src="/images/profileImage.jpg" alt="Pet image" class="img-responsive" id="image">
       @else
-      <img src=" /storage/{{$found->img1}} " alt="Pet image" class="img-responsive" id="image">
+      <img src="/storage/{{$found->img1}} " alt="Pet image" class="img-responsive" id="image">
       @endif
 
     </div>
@@ -49,7 +49,12 @@
         </div>
 
         <div class="col">
+          @if($found->petAge != NULL)
           <h5>Age: {{ $found->petAge }}</h5>
+          @else
+          <h5>Pet age unknown</h5>
+          @endif
+
         </div>
       </div>
 
@@ -104,10 +109,18 @@
 
   <div class="row d-flex justify-content-center" id="details">
     <div class="col-sm-4">
+      @if($found->img2 === NULL)
+      <img src="/images/profileImage.jpg " class="img-responsive mb-2" id="recentPhoto" alt="foundImage" id="image">
+      @else
       <img src="/storage/{{$found->img2}} " class="img-responsive mb-2" id="recentPhoto" alt="foundImage" id="image">
+      @endif
     </div>
     <div class="col-sm-4">
-      <img src="/storage/{{$found->img2}} " class="img-responsive" id="recentPhoto" alt="foundImage" id="image">
+      @if($found->img2 === NULL)
+      <img src="/images/profileImage.jpg " class="img-responsive mb-2" id="recentPhoto" alt="foundImage" id="image">
+      @else
+      <img src="/storage/{{$found->img3}} " class="img-responsive" id="recentPhoto" alt="foundImage" id="image">
+      @endif
     </div>
 
     <div class="col-sm-2 pt-5">
