@@ -14,11 +14,11 @@ class SocialShareController extends Controller
             'Your share text comes here',
         )
             ->facebook()
-            ->twitter()
-            ->linkedin()
-            ->telegram()
-            ->whatsapp()
-            ->reddit();
+            ->whatsapp();
+        // ->twitter()
+        // ->linkedin()
+        // ->telegram()            
+        // ->reddit();
 
         $posts = Missing::get();
 

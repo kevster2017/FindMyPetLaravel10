@@ -89,7 +89,46 @@
       </div>
 
       <div class="col">
-        <a href="{{ route('messages.show', $missing->id) }}" class="btn btn-primary ">View Messages</a>
+        <a href="{{ route('messages.show', $missing->id) }}" class="btn btn-primary me-3">View Messages</a>
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#shareModal">
+          Share
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="shareModalLabel"><strong>Share to social media</strong></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="mt-3 text-center">
+                  <div class="social-btn-sp">
+
+                    {!! Share::page(url('/missing/'. $missing->id))->facebook()->whatsapp() !!}
+
+                    <!--Share full website  {!! $shareButtons !!} -->
+                  </div>
+
+                </div>
+
+
+              </div>
+              <div class="modal-footer">
+
+
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
       </div>
 
 
@@ -179,6 +218,7 @@
         <a href="{{ route('missing.edit', $missing->id) }}" class="btn btn-info">Edit Profile</a>
         @endif
       </div>
+
     </div>
 
 
@@ -268,19 +308,27 @@
                 </form>
               </div>
 
+
             </div>
+
           </div>
         </div>
 
 
+
       </div>
-      <div class="social-btn-sp mt-5">
-        {!! Share::page(url('/missing/'. $missing->id))->facebook()->whatsapp() !!}
-      </div>
+
 
     </div>
 
   </div>
+
+
+
+
+
+
+
 
 </div>
 
