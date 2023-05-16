@@ -62,7 +62,7 @@
                 <div class="form-group row mt-3 pb-3">
                     <label for="petType" class="col-sm-3 col-form-label ms-5">Select Pet Type</label>
                     <div class="col-sm-4">
-                        <select class="form-select @error('petType') is-invalid @enderror" name="petType" aria-label="Default select example">
+                        <select class="form-select @error('petType') is-invalid @enderror" name="petType" value="{{ old('petType') }}" aria-label="Default select example">
 
                             <option selected="Dog">Dog</option>
                             <option value="Cat">Cat</option>
@@ -78,7 +78,7 @@
                 <div class="form-group row mt-3 pb-3">
                     <label for="petName" class="col-sm-3 col-form-label ms-5">Pet Name</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('petName') is-invalid @enderror" name="petName" placeholder="Enter Pet Name"> @error('petName')
+                        <input type="text" class="form-control @error('petName') is-invalid @enderror" name="petName" value="{{ old('petName') }}" placeholder="Enter Pet Name"> @error('petName')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span> @enderror
@@ -88,7 +88,7 @@
                 <div class="form-group row mt-3 pb-3">
                     <label for="petAge" class="col-sm-3 col-form-label ms-5">Pet Age</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('petAge') is-invalid @enderror" name="petAge" placeholder="Enter Pet Age"> @error('petAge')
+                        <input type="text" class="form-control @error('petAge') is-invalid @enderror" name="petAge" value="{{ old('petAge') }}" placeholder="Enter Pet Age"> @error('petAge')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span> @enderror
@@ -98,7 +98,7 @@
                 <div class="form-group row mt-3 pb-3">
                     <label for="description" class="col-sm-3 col-form-label ms-5">Description</label>
                     <div class="col">
-                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="5" style="height:100%" placeholder="Max 250 Characters" minlength="3" maxlength="250 "></textarea> @error('about')
+                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="5" style="height:100%" placeholder="Max 250 Characters" minlength="3" maxlength="250 ">{{ old('description') }}</textarea> @error('about')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span> @enderror
@@ -108,7 +108,7 @@
                 <div class="form-group row mt-3">
                     <label for="town" class="col-sm-3 col-form-label ms-5">Town</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('town') is-invalid @enderror" name="town" id="town" placeholder="Enter Town"> @error('town')
+                        <input type="text" class="form-control @error('town') is-invalid @enderror" name="town" value="{{ old('town') }}" id="town" placeholder="Enter Town"> @error('town')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span> @enderror
@@ -120,7 +120,7 @@
                 <div class="form-group row mt-3">
                     <label for="postCode" class="col-sm-3 col-form-label ms-5">Post Code (First 3 or 4 digits)</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('postCode') is-invalid @enderror" name="postCode" placeholder="Enter Post Code (First 3 or 4 digits)"> @error('postCode')
+                        <input type="text" class="form-control @error('postCode') is-invalid @enderror" name="postCode" value="{{ old('postCode') }}" placeholder="Enter Post Code (First 3 or 4 digits)"> @error('postCode')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span> @enderror
@@ -130,7 +130,7 @@
                 <div class="form-group row mt-3">
                     <label for="chipNum" class="col-sm-3 col-form-label ms-5">Enter Microchip number (if known)</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('chipNum') is-invalid @enderror" name="chipNum" id="chipNum" placeholder="Enter Microchip Number"> @error('chipNum')
+                        <input type="text" class="form-control @error('chipNum') is-invalid @enderror" name="chipNum" value="{{ old('chipNum') }}" id="chipNum" placeholder="Enter Microchip Number"> @error('chipNum')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span> @enderror

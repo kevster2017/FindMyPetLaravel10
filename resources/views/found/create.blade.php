@@ -75,7 +75,7 @@
                 <div class="form-group row mt-3">
                     <label for="petName" class="col-sm-3 col-form-label ms-5">Pet Name (If known)</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('petName') is-invalid @enderror" name="petName" id="petName" placeholder="Enter Pet Name if known"> @error('petName')
+                        <input type="text" class="form-control @error('petName') is-invalid @enderror" name="petName" value="{{ old('petName') }}" id="petName" placeholder="Enter Pet Name if known"> @error('petName')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span> @enderror
@@ -87,7 +87,7 @@
                 <div class="form-group row mt-3">
                     <label for="petAge" class="col-sm-3 col-form-label ms-5">Pet Age (If known)</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('petAge') is-invalid @enderror" name="petAge" id="petAge" placeholder="Enter Pet Age if known"> @error('petAge')
+                        <input type="text" class="form-control @error('petAge') is-invalid @enderror" name="petAge" value="{{ old('petAge') }}" id="petAge" placeholder="Enter Pet Age if known"> @error('petAge')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span> @enderror
@@ -99,7 +99,7 @@
                 <div class="form-group row mt-3 pb-3">
                     <label for="description" class="col-sm-3 col-form-label ms-5">Description</label>
                     <div class="col">
-                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" rows="5" style="height:100%" placeholder="Max 250 Characters" minlength="3" maxlength="250 "></textarea> @error('about')
+                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="5" style="height:100%" placeholder="Max 250 Characters" minlength="3" maxlength="250 ">{{ old('description') }}</textarea> @error('about')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span> @enderror
@@ -109,7 +109,7 @@
                 <div class="form-group row mt-3">
                     <label for="town" class="col-sm-3 col-form-label ms-5">Town where pet was found</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('town') is-invalid @enderror" name="town" id="town" placeholder="Enter Town"> @error('town')
+                        <input type="text" class="form-control @error('town') is-invalid @enderror" name="town" value="{{ old('town') }}" id="town" placeholder="Enter Town"> @error('town')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span> @enderror
@@ -121,7 +121,7 @@
                 <div class="form-group row mt-3 d-flex">
                     <label for="postCode" class="col-sm-3 col-form-label ms-5">Post Code where pet was found (First 3 or 4 digits)</label>
                     <div class="col">
-                        <input type="text" class="form-control @error('postCode') is-invalid @enderror" name="postCode" placeholder="Enter Post Code (First 3 or 4 digits)"> @error('postCode')
+                        <input type="text" class="form-control @error('postCode') is-invalid @enderror" name="postCode" value="{{ old('postCode') }}" placeholder="Enter Post Code (First 3 or 4 digits)"> @error('postCode')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span> @enderror
