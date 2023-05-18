@@ -8,7 +8,7 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Private Messages</li>
+      <li class="breadcrumb-item active" aria-current="page">All Private Messages</li>
     </ol>
   </nav>
 </div>
@@ -17,7 +17,7 @@
 
 
 <div class="container">
-  <h1 class="text-center pb-3">Private Messages</h1>
+  <h1 class="text-center pb-3">All Private Messages</h1>
   @if($messages->count() < 1) <h1 class="text-center">No Messages Received </h1>
     @else
 

@@ -24,30 +24,14 @@ class PrivateMessageController extends Controller
 
     public function index()
     {
-        /*
-        $messages = PrivateMessage::select('id', 'firstName', 'message', 'created_at')
-            ->distinct()
-            ->paginate(3);
-           
-        $messages = DB::table('private_messages')
 
-            ->groupBy('firstName')
-            ->get();
- */
-        $messages = PrivateMessage::distinct('firstName')->pluck('firstName');
-
-
-        return view('privateMessage.index', compact('messages'));
-
-        /*
         if (auth()->check() && auth()->user()->is_admin == 1) {
-            $arr['messages'] = PrivateMessage::orderBy('created_at', 'asc')->paginate(3);
+            $arr['messages'] = PrivateMessage::orderBy('created_at', 'asc')->paginate(10);
             return view('privateMessage.index')->with($arr);
             // dd($arr);
         } else {
             return abort(403);
         }
-        */
     }
 
     /**

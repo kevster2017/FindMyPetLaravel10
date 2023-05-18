@@ -95,7 +95,7 @@ class PMReplyController extends Controller
 
         $message = PMReply::findOrFail($id);
 
-        // dd($message);
+        //dd($message);
 
         $msgid = $message->private_message_id;
 
@@ -112,10 +112,16 @@ class PMReplyController extends Controller
             ->select('pmreplys.*', 'private_messages.id as private_messages_id')
             ->first();
 
+        $fromImage = DB::table('users')
+            ->where('id', $message->FromUser_id)
+            ->get();
+
+        //dd($fromImage);
+
         return view('PMReply.show', [
             'messages' => $messages,
             'privmessages' => $privmessages,
-
+            'fromImage' => $fromImage
         ]);
     }
 

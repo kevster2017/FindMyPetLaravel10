@@ -28,10 +28,10 @@
 
       </div>
       <div class="col-sm-4">
-        <img src="/images/maineCoon.jpg " class="img-fluid" alt="... " id="navImg">
+        <img src="{{$fromImage->id}}" class="img-fluid" alt="... " id="navImg">
       </div>
       <div class="col-sm-6">
-        <h5 class="card-title my-3">From: {{ $privmessages->firstName }}</h5>
+        <h5 class="card-title my-3">From: {{ $privmessages->ToUser_firstName }}</h5>
       </div>
 
     </div>
