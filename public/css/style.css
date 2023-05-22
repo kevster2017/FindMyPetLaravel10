@@ -52,6 +52,7 @@ img {
 #logo {
   max-height: 80px;
   max-width: 80px;
+  border-radius: 50%;
 
 }
 
@@ -111,7 +112,8 @@ label {
 }
 
 #showNav {
-  background-color: blue;
+  background-color: rgb(17, 17, 243);
+  border-radius: 20px;
 }
 
 #navText {

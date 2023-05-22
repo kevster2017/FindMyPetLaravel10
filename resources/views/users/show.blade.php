@@ -82,7 +82,7 @@
             <!-- Button trigger modal -->
             @if($users->id === Auth::user()->id || auth()->user()->is_admin == 1)
 
-            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+            <button type="button" class="btn btn-sm btn-danger ms-3" data-bs-toggle="modal" data-bs-target="#deleteModal">
               Delete Profile
             </button>
 

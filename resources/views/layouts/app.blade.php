@@ -52,7 +52,7 @@
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <div class="">
-                    <img src="/images/FindMyPetLogo.png" alt="Find My Pet Logo" class="img-responsive" id="logo">
+                    <img src="/images/FMPPawCircle.png" alt="Find My Pet Logo" class="img-responsive" id="logo">
                 </div>
 
 

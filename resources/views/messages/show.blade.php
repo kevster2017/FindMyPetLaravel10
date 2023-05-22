@@ -20,26 +20,26 @@
   <div class="container my-3" id="showNav">
     <div class="row" id="navText">
       <div class="col-sm-2">
-        <div class="my-3" id="navText">
-          <a href="javascript:history.back()" class="mt-3">
-            <<< Back to Index </a>
+        <div class="my-3 ms-3" id="navText">
+          <a href="javascript:history.back()" class="mt-3" style="color: white">
+            <i class="fa fa-arrow-left me-2" aria-hidden="true"></i> Back</a>
         </div>
 
 
       </div>
-      <div class="col-sm-4">
-        <img src="Images/tiger.jpg " class="img-fluid" alt="... " id="navImg">
-      </div>
-      <div class="col-sm-6">
-        <h5 class="card-title my-3">From Name</h5>
+
+      <div class="col-sm offset-sm-6">
+        <h5 class="card-title my-3">Message From</h5>
       </div>
 
     </div>
   </div>
 
 
+  @if($messages->count() == 0)
+  <h1 class="text-center py-3">No Messages Received</h1>
 
-
+  @else
   @foreach($messages as $message)
 
   @if($message->user_id === auth()->user()->id)
@@ -76,7 +76,9 @@
 
 
   @endforeach
+  @endif
 
+  @if($messages->count() != 0)
   <div class="col-8 offset-2">
 
     <form action="{{ route('messages.store') }}" enctype="multipart/form-data" method="post" id="myForm" name="myForm">
@@ -110,6 +112,7 @@
     </form>
 
   </div>
+  @endif
 
 
 </div> <!-- End container -->
