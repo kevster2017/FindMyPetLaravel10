@@ -94,6 +94,7 @@ body {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 
@@ -157,4 +158,9 @@ table #social-links ul li a{
   margin: 1px;
   font-size: 15px;
   background: #e3e3ea;
+}
+
+#emergencyCards:hover {
+  background-color: gold;
+  text-decoration: none;
 }

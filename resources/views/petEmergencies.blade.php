@@ -19,16 +19,18 @@
     <p>By clicking on each card, you can find information on what to do in a particular situation. We hope that you never find yourself in a situation where you have to follow any of the advice, however if you do, you know where you can find the information that will hopefully lead to a successful outcome for you and your pet.</p>
 </div>
 
-<div class="container">
+<div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
-            <div class="card h-100">
-                <img src="/images/blackCat.jpg" class="card-img-top" alt="Black Cat">
-                <div class="card-body">
-                    <h5 class="card-title">Preparing for emergencies</h5>
-                    <p class="card-text">This section will let you know how to prepare and what to do in an emergency</p>
+            <a href="{{ route('petEmergencies.preparing') }}">
+                <div class="card h-100" id="emergencyCards">
+                    <img src="/images/blackCat.jpg" class="card-img-top" alt="Black Cat">
+                    <div class="card-body">
+                        <h5 class="card-title">Preparing for emergencies</h5>
+                        <p class="card-text">This section will let you know how to prepare and what to do in an emergency</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col">
             <div class="card h-100">

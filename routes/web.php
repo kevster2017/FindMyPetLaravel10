@@ -91,3 +91,51 @@ Route::controller(PostController::class)->group(function () {
     Route::get('posts', 'index');
     Route::post('posts', 'store')->name('posts.store');
 });
+
+
+Route::get('/petEmergencies', function () {
+    return view('petEmergencies');
+})->name('petEmergencies');
+Route::get('/petEmergencies/preparingForEmergencies', function () {
+    return view('emergencies.preparing');
+})->name('petEmergencies.preparing');
+
+Route::get('/petEmergencies/biteWounds', function () {
+    return view('emergencies.bites');
+})->name('petEmergencies.bites');
+
+Route::get('/petEmergencies/bleeding', function () {
+    return view('emergencies.bleeding');
+})->name('petEmergencies.bleeding');
+
+Route::get('/petEmergencies/brokenBones', function () {
+    return view('emergencies.brokenBones');
+})->name('petEmergencies.brokenBones');
+
+Route::get('/petEmergencies/choking', function () {
+    return view('emergencies.choking');
+})->name('petEmergencies.choking');
+
+Route::get('/petEmergencies/heatstroke', function () {
+    return view('emergencies.heatstroke');
+})->name('petEmergencies.heatstroke');
+
+Route::get('/petEmergencies/hypothermia', function () {
+    return view('emergencies.hypothermia');
+})->name('petEmergencies.hypothermia');
+
+Route::get('/petEmergencies/moving', function () {
+    return view('emergencies.moving');
+})->name('petEmergencies.moving');
+
+Route::get('/petEmergencies/poisonsToxins', function () {
+    return view('emergencies.poisonsToxins');
+})->name('petEmergencies.poisonsToxins');
+
+Route::get('/petEmergencies/rtas', function () {
+    return view('emergencies.rtas');
+})->name('petEmergencies.rtas');
+
+Route::get('/petEmergencies/seizures', function () {
+    return view('emergencies.seizures');
+})->name('petEmergencies.seizures');
