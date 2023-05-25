@@ -81,6 +81,10 @@ Route::get('/Register', function () {
     return view('Register');
 });
 
+Route::get('/petEmergencies', function () {
+    return view('petEmergencies');
+})->name('petEmergencies');
+
 Route::get('social-share', [SocialShareController::class, 'index']);
 
 Route::controller(PostController::class)->group(function () {

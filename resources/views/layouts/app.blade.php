@@ -237,7 +237,7 @@
                         Pet Advice
                     </h6>
                     <p>
-                        <a href="#!" class="text-reset">Pet Emergencies</a>
+                        <a href="{{ route('petEmergencies') }}" class="text-reset">Pet Emergencies</a>
                     </p>
                     <p>
                         <a href="#!" class="text-reset">Dogs</a>
