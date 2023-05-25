@@ -135,6 +135,40 @@
 
           </div>
         </div>
+        @if($found->user_id === auth()->user()->id && $found->reunited == 0)
+        <button type="button" class="btn btn-danger ms-3" data-bs-toggle="modal" data-bs-target="#reuniteModal">
+          Mark as reunited?
+        </button>
+        @endif
+
+        <!-- Modal -->
+        <div class="modal fade" id="reuniteModal" tabindex="-1" role="dialog" aria-labelledby="reuniteModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="reuniteModalLabel"><strong>Are you sure you want to mark this pet as reunited?<strong></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
+                </button>
+              </div>
+              <div class="modal-body">
+                Once marked as reunited, this cannot be undone!
+              </div>
+              <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger">Reunite</a>
+                <form action="{{ route('found.update', $found->id) }}" method="post">
+                  <input type="hidden" value="1" name="reunited" id="reunited">
+                  @method('PUT')
+                  @csrf
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
 
 
       </div>
