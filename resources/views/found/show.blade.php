@@ -253,7 +253,7 @@
             </form>
           </div>
         </div>
-        @if($found->user_id === Auth::user()->id || auth()->user()->is_admin == 1)
+        @if($found->user_id === Auth::user()->id)
         <a href="{{ route('found.edit', $found->id) }}" class="btn btn-info">Edit Profile</a>
         @endif
       </div>

@@ -250,7 +250,7 @@
             </form>
           </div>
         </div>
-        @if($missing->user_id === Auth::user()->id || Auth::user()->is_admin == 1)
+        @if($missing->user_id === Auth::user()->id)
         <a href="{{ route('missing.edit', $missing->id) }}" class="btn btn-info">Edit Profile</a>
         @endif
       </div>
