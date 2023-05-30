@@ -114,37 +114,6 @@ class PrivateMessageController extends Controller
             ->paginate(3);
 
 
-        // dd($privmessages);
-
-
-
-        /*
-         $messages = DB::table('private_messages')
-            ->where('ToUser_id', auth()->user()->id)
-            ->groupBy('user_id')->paginate(5);
-            
-     $messages = PrivateMessage::orderBy('id', 'DESC')
-            ->where('ToUser_id', auth()->user()->id)
-            ->distinct('user_id')->paginate(3);
-
-              $messages = DB::table('private_messages')
-            ->where('ToUser_id', auth()->user()->id)
-            ->distinct()->get();
-       
-        $messages = PrivateMessage::where('ToUser_id', auth()->user()->id)
-            ->select(['user_id', 'ToUser_id'])
-            ->selectRaw('MAX(created_at) AS last_date')
-            ->groupBy(['user_id', 'ToUser_id'])
-            ->orderBy('last_date', 'DESC')
-            ->paginate(3);
-*/
-
-        //dd($messages);
-        //  $messages->setCollection($messages->groupBy('user_id'));;
-        //dd($messages);
-
-        // dd($images);
-
         return view('privateMessage.show', [
             'messages' => $messages,
             'images' => $images,

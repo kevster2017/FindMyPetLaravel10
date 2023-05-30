@@ -16,8 +16,6 @@ class UserController extends Controller
     public function index()
     {
 
-       // $users = User::all();
-       // return view ('users.index')->with('users', $users);
 
         if (auth()->check() && auth()->user()->is_admin == 1) {
             $users = User::where('id', '>', 0)
@@ -70,7 +68,7 @@ class UserController extends Controller
         if (!empty($request->input('surname'))) {
             $user->surname = $request->surname;
         }
-       
+
         if (!empty($request->input('town'))) {
             $user->town = $request->town;
         }
@@ -80,7 +78,7 @@ class UserController extends Controller
 
         $user->save();
 
-       // dd($user);
+        // dd($user);
 
         return redirect()->route('users.show', $user->id)->with('success', 'Profile successfully updated!!');
     }
@@ -92,7 +90,7 @@ class UserController extends Controller
             'image' => ['required', 'image'],
             'firstName' => ['required'],
             'surname' => ['required'],
-                        
+
 
         ]);
 
@@ -104,7 +102,7 @@ class UserController extends Controller
         $user->image = $imagePath;
         $user->firstName = $request->firstName;
         $user->surname = $request->surname;
-      
+
         $user->save();
         return redirect()->route('users.show', $user->id)->with('success', 'Profile successfully registered');;
     }

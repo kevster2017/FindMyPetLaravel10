@@ -16,48 +16,46 @@ class StatisticsController extends Controller
     {
 
         $users = DB::table('users')->count();
-        $registrations = User::whereDay('created_at', today())->count();       
+        $registrations = User::whereDay('created_at', today())->count();
         $messages = DB::table('contact_us')->count();
 
-       // $missingDog = Report::where('petType', 'Dog')
-        //->where('missing', 1)->count();
 
         $missingDog = DB::table('missings')
-        ->where('petType', 'Dog')
-        ->count();
+            ->where('petType', 'Dog')
+            ->count();
         $missingCat = DB::table('missings')
-        ->where('petType', 'Cat')
-        ->count();
+            ->where('petType', 'Cat')
+            ->count();
         $missingPet = DB::table('missings')
-        ->where('petType', 'Other')
-        ->count();
-       
+            ->where('petType', 'Other')
+            ->count();
+
         $foundDog = DB::table('founds')
-        ->where('petType', 'Dog')
-        ->count();
+            ->where('petType', 'Dog')
+            ->count();
         $foundCat = DB::table('founds')
-        ->where('petType', 'Cat')
-        ->count();
+            ->where('petType', 'Cat')
+            ->count();
         $foundPet = DB::table('founds')
-        ->where('petType', 'Other')
-        ->count();
+            ->where('petType', 'Other')
+            ->count();
 
-        
+
         $reunitedDog = DB::table('missings')
-        ->where('petType', 'Dog')
-        ->where('reunited', 1)
-        ->count();
+            ->where('petType', 'Dog')
+            ->where('reunited', 1)
+            ->count();
         $reunitedCat = DB::table('missings')
-        ->where('petType', 'Cat')
-        ->where('reunited', 1)
-       ->count();
+            ->where('petType', 'Cat')
+            ->where('reunited', 1)
+            ->count();
         $reunitedPet = DB::table('missings')
-        ->where('petType', 'Other')
-        ->where('reunited', 1)
-        ->count();
+            ->where('petType', 'Other')
+            ->where('reunited', 1)
+            ->count();
 
 
-       
+
 
         return view('viewStatistics', [
             'users' => $users,

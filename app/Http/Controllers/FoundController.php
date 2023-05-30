@@ -194,7 +194,6 @@ class FoundController extends Controller
 
         // dd($found);
 
-        //return redirect()->route('found.show', $found->id)->with('success', 'Found Pet Successfully Uploaded!!');
 
         return redirect()->route('welcome')->with('success', 'Found Pet Successfully Uploaded!!');
     }

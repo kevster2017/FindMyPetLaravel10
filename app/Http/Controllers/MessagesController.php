@@ -22,7 +22,7 @@ class MessagesController extends Controller
         $this->middleware('auth');
     }
 
-    // Display all messages if the authenticaed user is an Admin
+    // Display all messages if the authenticated user is an Admin
     public function index()
     {
 
@@ -67,8 +67,6 @@ class MessagesController extends Controller
         ]);
 
 
-
-        // $message->user_id = auth()->user()->id;
         $message->user_id = auth()->user()->id;
         $message->ToUser_id = $request->input('ToUser_id');
         $message->report_id = $request->input('report_id');

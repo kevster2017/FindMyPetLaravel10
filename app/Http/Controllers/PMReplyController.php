@@ -57,9 +57,6 @@ class PMReplyController extends Controller
 
         ]);
 
-        //dd($request);
-
-        // $pm->user_id = auth()->user()->id;
         $pm->FromUser_id = auth()->user()->id;
         $pm->private_message_id = $request->input('private_message_id');
         $pm->ToUser_id = $request->input('ToUser_id');
@@ -83,15 +80,6 @@ class PMReplyController extends Controller
     public function show($id)
     {
 
-        /*
-        $id = auth()->user()->id;
-
-        $messages = PMReply::orderBy('created_at', 'asc')
-            ->where('ToUser_ID', $id)
-            //->get();
-            ->paginate(3);
-        //dd($messages);
-        */
 
         $message = PMReply::findOrFail($id);
 
@@ -116,7 +104,6 @@ class PMReplyController extends Controller
             ->where('id', $message->FromUser_id)
             ->get();
 
-        //dd($fromImage);
 
         return view('PMReply.show', [
             'messages' => $messages,

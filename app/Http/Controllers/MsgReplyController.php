@@ -20,8 +20,6 @@ class MsgReplyController extends Controller
         $messages = MsgReply::orderBy('id', 'DESC')
             ->paginate(3);
 
-        //  $message = DB::table('msgreplys')
-        //  ->where()
 
         return view('msgreply.index', compact('messages'));
     }
@@ -58,7 +56,6 @@ class MsgReplyController extends Controller
         ]);
 
 
-        // $pm->user_id = auth()->user()->id;
         $pm->FromUser_id = auth()->user()->id;
         $pm->message_id = $request->input('message_id');
         $pm->ToUser_id = $request->input('ToUser_id');
@@ -67,12 +64,9 @@ class MsgReplyController extends Controller
         $pm->firstName = auth()->user()->firstName;
         $pm->message = $request->message;
 
-        //dd($pm);
-
 
         $pm->save();
 
-        //dd($pm);
         return back()->with('success', 'Message Successful!');
     }
 
@@ -91,18 +85,7 @@ class MsgReplyController extends Controller
         $messages = MsgReply::orderBy('id', 'DESC')
             ->where('message_id', $id)
             ->paginate(3);
-        /*
-        $message = MsgReply::findOrFail($id);
 
-        $msgid = $message->message_id;
-
-        $messages = DB::table('messages')
-            ->join('msgreplys', 'messages.id', '=', 'msgreplys.message_id')
-            ->where('messages.id', $msgid)
-            ->select('msgreplys.*', 'messages.id as messages_id')
-            ->paginate(3);
-
-*/
 
         return view('msgreply.show', [
             'messages' => $messages,

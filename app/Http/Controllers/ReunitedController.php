@@ -30,7 +30,7 @@ class ReunitedController extends Controller
         $reunitedCatsFound = DB::table('missings')
             ->where('petType', 'Cat')
             ->where('reunited', 1);
-        
+
         $reunitedCatsMissing = DB::table('founds')
             ->where('petType', 'Cat')
             ->where('reunited', 1)
@@ -93,9 +93,8 @@ class ReunitedController extends Controller
     {
 
         $reunitedPetsMissing = DB::table('missings')
-
             ->where('reunited', 1);
-        // ->orderBy('created_at', 'ASC')->paginate(3);
+
         $reunitedPets = DB::table('founds')
 
             ->where('reunited', 1)

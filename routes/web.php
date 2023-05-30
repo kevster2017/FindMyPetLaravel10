@@ -46,20 +46,7 @@ Route::get('/reunited/cats', [ReunitedController::class, 'reunitedCatsIndex']);
 Route::get('/reunited/dogs', [ReunitedController::class, 'reunitedDogsIndex']);
 Route::get('/reunited/otherPets', [ReunitedController::class, 'reunitedPetsIndex']);
 
-/*
 
-//Route::get('/reports/found', [ReportController::class, 'foundIndex']);
-
-
-
-
-//Route::get('/missing', [ReportController::class, 'missingIndex']);
-
-
-
-
-Route::get('/reunited', [ReportController::class, 'reunitedIndex']);
-*/
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
@@ -74,6 +61,9 @@ Route::resource('/contactUs', ContactUsController::class);
 Route::resource('/privateMessage', PrivateMessageController::class)->middleware('auth');
 Route::resource('/PMReply', PMReplyController::class)->middleware('auth');
 Route::resource('/MsgReply', MsgReplyController::class)->middleware('auth');
+
+
+/* Other Routes */
 
 Route::get('/viewStatistics', [StatisticsController::class, 'stats']);
 
@@ -92,7 +82,7 @@ Route::controller(PostController::class)->group(function () {
     Route::post('posts', 'store')->name('posts.store');
 });
 
-
+/* Pet Emergency Routes */
 Route::get('/petEmergencies', function () {
     return view('petEmergencies');
 })->name('petEmergencies');

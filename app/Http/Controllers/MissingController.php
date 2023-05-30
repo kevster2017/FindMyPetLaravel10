@@ -198,7 +198,6 @@ class MissingController extends Controller
 
         $missing->save();
 
-        //return redirect()->route('missing.show', $missing->id)->with('success', 'Missing Pet Successfully Uploaded!!');
 
         return redirect()->route('welcome')->with('success', 'Missing Pet Successfully Uploaded!!');
     }
