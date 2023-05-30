@@ -8,6 +8,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+// Send email when creating user account
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewUserWelcomeEmail;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -27,6 +31,8 @@ class User extends Authenticatable
         'password',
     ];
 
+
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -45,4 +51,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Send email when user account created
+
+    protected static function boot()
+    {
+
+        parent::boot();
+
+        static::created(function ($user) {
+
+            Mail::to($user->email)->send(new NewUserWeclomeEmail());
+        });
+    }
 }
