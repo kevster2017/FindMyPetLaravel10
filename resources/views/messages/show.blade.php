@@ -21,12 +21,14 @@
     <div class="row" id="navText">
       <div class="col-sm-2">
         <div class="my-3 ms-3" id="navText">
-          <a href="javascript:history.back()" class="mt-3" style="color: white">
+          <a href="javascript:history.back()" class="mt-3" id="navText">
             <i class="fa fa-arrow-left me-2" aria-hidden="true"></i> Back</a>
         </div>
 
 
       </div>
+
+
 
       <div class="col-sm offset-sm-6">
         <h5 class="card-title my-3">Message From</h5>

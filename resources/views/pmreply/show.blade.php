@@ -18,20 +18,20 @@
 <div class="container py-3">
   <!-- message navbar -->
   <div class="container my-3" id="showNav">
-    <div class="row" id="navText">
+    <div class="row">
       <div class="col-sm-2">
-        <div class="my-3" id="navText">
-          <a href="{{ route('privateMessage.show', $privmessages->private_message_id) }}" class="mt-3">
-            <<< Back to Index </a>
+        <div class="my-3">
+          <a href="{{ route('privateMessage.show', $privmessages->private_message_id) }}" class="mt-3" id="navText">
+            <i class="fa fa-arrow-left me-2" aria-hidden="true"></i> Back to Index </a>
         </div>
 
 
       </div>
       <div class="col-sm-4">
-        <img src="{{$fromImage->id}}" class="img-fluid" alt="... " id="navImg">
+        <img src="/storage/{{$fromImage->image}}" class="img-fluid" alt="From User Image " id="navImg">
       </div>
       <div class="col-sm-6">
-        <h5 class="card-title my-3">From: {{ $privmessages->ToUser_firstName }}</h5>
+        <h5 class="card-title my-3" id="navText">From: {{ $privmessages->ToUser_firstName }}</h5>
       </div>
 
     </div>

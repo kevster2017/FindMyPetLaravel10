@@ -102,7 +102,7 @@ class PMReplyController extends Controller
 
         $fromImage = DB::table('users')
             ->where('id', $message->FromUser_id)
-            ->get();
+            ->first();
 
 
         return view('PMReply.show', [

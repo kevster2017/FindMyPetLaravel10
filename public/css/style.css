@@ -108,8 +108,9 @@ label {
 }
 
 #navImg {
-  max-height: 200px;
-  max-width: 200px;
+  max-height: 100px;
+  max-width: 100px;
+  border-radius: 50%;
 }
 
 #showNav {
